@@ -6,8 +6,12 @@ export default {
   ],
   theme: {
     fontSize: {
-      xs: '.35rem',
-      sm: '.4rem'
+      xs: '.3rem',
+      sm: '.35rem',
+      base: '.4rem',
+      lg: '.5rem',
+      xl: '.55rem',
+      "2xl": '.6rem'
     },
     extend: {},
   },
