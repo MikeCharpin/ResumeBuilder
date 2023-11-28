@@ -4,10 +4,36 @@ export default function Resume() {
     return (
         <div className="bg-white w-3/4 h-full p-4">
             <ResumeHeader />
-            <ProjectSection />
-            <ExperienceSection />
-            <EducationSection />
-            <InvolvementSection />
+            <div className='w-full flex flex-col'>
+                <div className='pb-1'>
+                    <div className='text-base font-thin'>
+                        PROJECTS
+                    </div>
+                    <div className='border border-solid w-full border-slate-300 rounded-full' />
+                    <ProjectSection />
+                </div>
+                <div className='pb-1'>
+                    <div className='text-base font-thin'>
+                        EXPERIENCE
+                    </div>
+                    <div className='border border-solid w-full border-slate-300 rounded-full' />
+                    <ExperienceSection />
+                </div>
+                <div className='pb-1'>
+                    <div className='text-base font-thin'>
+                        EDUCATION
+                    </div>
+                    <div className='border border-solid w-full border-slate-300 rounded-full' />
+                    <EducationSection />
+                </div>
+                <div className='pb-1'>
+                    <div className='text-base font-thin'>
+                        INVOLVEMENT
+                    </div>
+                    <div className='border border-solid w-full border-slate-300 rounded-full' />
+                    <InvolvementSection />
+                </div>
+            </div>
         </div>
     )
 } 
@@ -15,7 +41,7 @@ export default function Resume() {
 function ResumeHeader() {
     return (
         <div className="flex flex-col items-center justify-center">
-            <div className="font-xl">
+            <div className="text-2xl font-bold">
                 Mike Charpin
             </div>
             <div className="flex">
@@ -46,35 +72,80 @@ function ResumeHeader() {
     )
 }
 
+
+
+
+
+
 function ProjectSection() {
     return (
-        <div className='w-full flex flex-col'>
-            <div className='text-sm font-bold'>
-                PROJECTS
+        <div>
+            <div className='text-sm font-semibold'>
+                Task Prioritization
+            </div>
+            <div className='text-xs'>
+                September 2023 - present
+            </div>
+            <div className='text-xs'>
+                • Led the architecture and development of a project prioritization application using NextJS, React, Shaden-ui, TailwindCSS, Dndkit, and Firebase.
+                <br />
+                • Conducted comprehensive discovery sessions and wireframing to optimize user experience (UX) and alleviate decision paralysis.
+                <br />
+                • Designed and implemented a robust data structure and algorithm for efficient storage and calculation of project priorities.
+                <br />
             </div>
         </div>
     )
 }
 function ExperienceSection() {
     return (
-        <div>
-            ExperienceSection
+        <div className='w-full flex flex-col'>
+            <div className="text-sm font-semibold">
+                Job Title
+            </div>
+            <div className='text-sm flex justify-between'>
+                <div>
+                    Business name
+                </div>
+                <div>
+                    dates of employment
+                </div>
+            </div>
+            <div className='text-xs'>
+                Bullets
+            </div>
         </div>
     )
 }
 
 function EducationSection() {
     return (
-        <div>
-            EducationSection
+        <div className='w-full flex flex-col'>
+            <div className='text-sm font-semibold'>
+                Sub-Header
+            </div>
+            <div className='text-xs'>
+                dates
+            </div>
+            <div className='text-xs'>
+                Bullets
+            </div>
         </div>
     )
 }
 
 function InvolvementSection() {
     return (
-        <div>
-            InvolvementSection
+        <div className='w-full flex flex-col'>
+            <div className='text-sm font-semibold'>
+                Sub-Header
+            </div>
+            <div className='text-xs'>
+                dates
+            </div>
+            <div className='text-xs'>
+                Bullets
+            </div>
         </div>
     )
 }
