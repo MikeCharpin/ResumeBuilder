@@ -6,28 +6,28 @@ export default function Resume() {
             <ResumeHeader />
             <div className='w-full flex flex-col'>
                 <div className='pb-1'>
-                    <div className='text-base font-thin'>
+                    <div className='text-sm font-thin'>
                         PROJECTS
                     </div>
                     <div className='border border-solid w-full border-slate-300 rounded-full' />
                     <ProjectSection />
                 </div>
                 <div className='pb-1'>
-                    <div className='text-base font-thin'>
+                    <div className='text-sm font-thin'>
                         EXPERIENCE
                     </div>
                     <div className='border border-solid w-full border-slate-300 rounded-full' />
                     <ExperienceSection />
                 </div>
                 <div className='pb-1'>
-                    <div className='text-base font-thin'>
+                    <div className='text-sm font-thin'>
                         EDUCATION
                     </div>
                     <div className='border border-solid w-full border-slate-300 rounded-full' />
                     <EducationSection />
                 </div>
                 <div className='pb-1'>
-                    <div className='text-base font-thin'>
+                    <div className='text-sm font-thin'>
                         INVOLVEMENT
                     </div>
                     <div className='border border-solid w-full border-slate-300 rounded-full' />
