@@ -4,9 +4,9 @@ type InputGroup = {
     label:string
     type: string
     value: string | number
-    // onChange: (value: number | string) => void
-    optional: boolean
-    recommended: boolean
+    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+    optional?: boolean
+    recommended?: boolean
     "data-key": string
 }
 
@@ -19,7 +19,7 @@ export default function InputGroup({
     label,
     type,
     value,
-    // onChange,
+    onChange,
     optional,
     recommended,
     "data-key": dataKey
@@ -35,18 +35,20 @@ export default function InputGroup({
                 </div>
                 {type === "textarea" ? (
                     <textarea
+                    className="text-base border border-solid rounded-sm bg-slate-100 px-1"
                     id={id}
                     placeholder={placeholder}
-                    // onChange={onChange}
+                    onChange={onChange}
                     value={value}
                     data-key={dataKey}
                     ></textarea>
                 ) : (
                     <input
+                    className="text-base border border-solid rounded-sm bg-slate-100 px-1"
                     type={type}
                     id={id}
                     placeholder={placeholder}
-                    // onChange={onChange}
+                    onChange={onChange}
                     value={value}
                     data-key={dataKey}
                     />
