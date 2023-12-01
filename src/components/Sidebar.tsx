@@ -1,20 +1,22 @@
-import { useState } from "react"
 import InputGroup from "./InputGroup"
-import exampleData from "../example-data"
+import { PersonalInfoProps } from "../App"
+
+type SidebarProps = {
+    personalInfo: PersonalInfoProps
+    onChange:( e: React.ChangeEvent<HTMLInputElement>) => void
+}
 
 
-export default function Sidebar() {
-    const [personInfo, setPersonalInfo] = useState(exampleData.personInfo)
 
-    function handlePersonalInfoChange(e) {
-        const { key } = e.target.dataset
-        setPersonalInfo({ ...AddPersonalInfo, [key]: e.target.value })
-    }
+
+export default function Sidebar({ onChange, personalInfo}: SidebarProps) {
+    
   return (
     <div className="bg-white h-full w-1/4 p-2">
         <Template />
         <AddPersonalInfo
-            
+            onChange={onChange}
+            fullName={personalInfo.fullName}
         />
         <AddProjectInfo />
         <AddExperienceInfo />
@@ -33,14 +35,15 @@ function Template() {
     )
 }
 
-type PersonalInfo = {
-    email: string
+type AddPersonalInfoProps = {
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
     fullName: string
-    phoneNumber: number
-    address: string
 }
 
-function AddPersonalInfo({ onChange, email, fullName, phoneNumber, address }: PersonalInfo) {
+function AddPersonalInfo({ onChange, fullName }: AddPersonalInfoProps) {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        onChange(e as React.ChangeEvent<HTMLInputElement>)
+    }
     return(
         <div className="flex flex-col gap-1 p-1 border border-solid rounded-sm">
             <div className="text-base font-semibold">
@@ -53,7 +56,7 @@ function AddPersonalInfo({ onChange, email, fullName, phoneNumber, address }: Pe
             label="Full Name"
             type="text"
             value={fullName}
-            onChange={onChange}
+            onChange={handleChange}
             data-key="fullName"
             optional
             />

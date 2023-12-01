@@ -1,9 +1,16 @@
 import { MapPinIcon, SmartphoneIcon, LinkedinIcon, SendIcon, GlobeIcon } from 'lucide-react';
+import { PersonalInfoProps } from '../App';
 
-export default function Resume() {
+type ResumeProps = {
+    personalInfo: PersonalInfoProps
+}
+
+export default function Resume({ personalInfo }: ResumeProps) {
     return (
         <div className="bg-white w-3/4 h-full p-4">
-            <ResumeHeader />
+            <ResumeHeader
+                fullName={personalInfo.fullName}
+            />
             <div className='w-full flex flex-col'>
                 <div className='pb-1'>
                     <div className='text-sm font-thin'>
@@ -38,11 +45,15 @@ export default function Resume() {
     )
 } 
 
-function ResumeHeader() {
+type ResumeHeaderProps = {
+    fullName: string
+}
+
+function ResumeHeader({fullName}: ResumeHeaderProps) {
     return (
         <div className="flex flex-col items-center justify-center">
             <div className="text-2xl font-bold">
-                Mike Charpin
+                {fullName}
             </div>
             <div className="flex">
                 <ul className="flex gap-1.5 text-xs">
