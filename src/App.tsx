@@ -3,9 +3,7 @@ import Resume from "./components/Resume"
 import Sidebar from "./components/Sidebar"
 import { exampleData } from "./example-data"
 
-export type PersonalInfoProps = {
-  fullName: string
-}
+
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState(exampleData.personalInfo)
@@ -13,7 +11,11 @@ function App() {
     const { key } = e.target.dataset as {key: string}
     setPersonalInfo({ ...personalInfo, [key]: e.target.value })
   }
-
+  const [experienceInfo, setExperienceInfo] = useState(exampleData.section.experienceInfo)
+  function handleExperienceInfoChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const { key } = e.target.dataset as {key:string}
+    setExperienceInfo({...experienceInfo, [key]: e.target.value})
+  }
 
 
   return (
