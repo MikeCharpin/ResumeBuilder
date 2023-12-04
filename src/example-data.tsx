@@ -23,7 +23,7 @@ export const exampleData = {
         projectEndDate: "present",
         projectDesc: "This is the project description"
     },
-    section: {
+    sections: {
         experienceInfo: [
             {
                 experienceTitle: "Project Manager",

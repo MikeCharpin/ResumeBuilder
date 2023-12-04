@@ -5,15 +5,14 @@ import ExpandSidebarSection from "./ExpandSidebarSection"
 
 type SidebarProps = {
     personalInfo: PersonalInfoProps
-    educationInfo: any
-    experienceInfo: any
+    sectionState: any
     onChange:( e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 
 
 
-export default function Sidebar({ onChange, personalInfo, educationInfo}: SidebarProps) {
+export default function Sidebar({ onChange, personalInfo, sectionState}: SidebarProps) {
     
   return (
     <div className="flex flex-col gap-4 bg-white h-full w-1/4 p-2">
@@ -29,7 +28,7 @@ export default function Sidebar({ onChange, personalInfo, educationInfo}: Sideba
         />
         <ExpandSidebarSection
             sectionName={"Education"}
-            sectionInfo={educationInfo}
+            sectionInfo={sectionState.educationInfo}
         />
 
         {/* <AddProjectInfo />
@@ -130,35 +129,35 @@ function AddPersonalInfo({ onChange, fullName, email, phoneNumber, location, lin
     )
 }
 
-function AddProjectInfo() {
-    return(
-        <div>
-            AddProjectInfo
-        </div>
-    )
-}
+// function AddProjectInfo() {
+//     return(
+//         <div>
+//             AddProjectInfo
+//         </div>
+//     )
+// }
 
-function AddExperienceInfo() {
-    return(
-        <div>
-            AddExperienceInfo
-        </div>
-    )
-}
+// function AddExperienceInfo() {
+//     return(
+//         <div>
+//             AddExperienceInfo
+//         </div>
+//     )
+// }
 
-function AddEducationInfo() {
-    return(
-        <div className="flex gap-1 p-3 border border-solid rounded-sm">
-            <GraduationCapIcon />
-        </div>
-    )
-}
+// function AddEducationInfo() {
+//     return(
+//         <div className="flex gap-1 p-3 border border-solid rounded-sm">
+//             <GraduationCapIcon />
+//         </div>
+//     )
+// }
 
-function AddInvolvementInfo() {
-    return(
-        <div>
-            AddInvolvementInfo
-        </div>
-    )
-}
+// function AddInvolvementInfo() {
+//     return(
+//         <div>
+//             AddInvolvementInfo
+//         </div>
+//     )
+// }
 

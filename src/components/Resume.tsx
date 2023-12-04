@@ -2,11 +2,11 @@ import { MapPinIcon, SmartphoneIcon, LinkedinIcon, SendIcon, GlobeIcon } from 'l
 import { PersonalInfoProps } from '../example-data';
 
 type ResumeProps = {
-    personalInfo: PersonalInfoProps
-    educationInfo: any
+    personalInfo: any
+    sectionState: any
 }
 
-export default function Resume({ personalInfo, educationInfo }: ResumeProps) {
+export default function Resume({ personalInfo, sectionState }: ResumeProps) {
     return (
         <div className="bg-white w-3/4 h-full p-4">
             <ResumeHeader
@@ -39,7 +39,7 @@ export default function Resume({ personalInfo, educationInfo }: ResumeProps) {
                     </div>
                     <div className='border border-solid w-full border-slate-300 rounded-full' />
                     <EducationSection
-                        educationInfo={educationInfo}
+                        educationSection={sectionState.educationInfo}
                     />
                 </div>
                 <div className='pb-1'>
@@ -136,11 +136,14 @@ function ExperienceSection() {
     )
 }
 
+type EducationSectionProps ={
+    educationSection: any
+}
 
-function EducationSection({educationInfo}) {
+function EducationSection({educationSection}: EducationSectionProps) {
     return (
         <div className='w-full flex flex-col'>
-            {educationInfo.map((education) =>
+            {educationSection.map((education: any) =>
                 <div>
                     <div className='text-sm font-semibold'>
                         {education.educationTitle}
