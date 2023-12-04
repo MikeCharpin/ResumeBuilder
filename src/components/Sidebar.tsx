@@ -1,18 +1,22 @@
 import InputGroup from "./InputGroup"
 import { PersonalInfoProps } from "../example-data"
+import { GraduationCapIcon } from "lucide-react"
+import ExpandSidebarSection from "./ExpandSidebarSection"
 
 type SidebarProps = {
     personalInfo: PersonalInfoProps
+    educationInfo: any
+    experienceInfo: any
     onChange:( e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 
 
 
-export default function Sidebar({ onChange, personalInfo}: SidebarProps) {
+export default function Sidebar({ onChange, personalInfo, educationInfo}: SidebarProps) {
     
   return (
-    <div className="bg-white h-full w-1/4 p-2">
+    <div className="flex flex-col gap-4 bg-white h-full w-1/4 p-2">
         <Template />
         <AddPersonalInfo
             onChange={onChange}
@@ -23,10 +27,15 @@ export default function Sidebar({ onChange, personalInfo}: SidebarProps) {
             website={personalInfo.website}
             phoneNumber={personalInfo.phoneNumber}
         />
-        <AddProjectInfo />
+        <ExpandSidebarSection
+            sectionName={"Education"}
+            sectionInfo={educationInfo}
+        />
+
+        {/* <AddProjectInfo />
         <AddExperienceInfo />
         <AddEducationInfo />
-        <AddInvolvementInfo />
+        <AddInvolvementInfo /> */}
 
     </div>
   )
@@ -51,6 +60,7 @@ type AddPersonalInfoProps = {
 }
 
 function AddPersonalInfo({ onChange, fullName, email, phoneNumber, location, linkedin, website }: AddPersonalInfoProps) {
+    
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         onChange(e as React.ChangeEvent<HTMLInputElement>)
     }
@@ -138,8 +148,8 @@ function AddExperienceInfo() {
 
 function AddEducationInfo() {
     return(
-        <div>
-            AddEducationInfo
+        <div className="flex gap-1 p-3 border border-solid rounded-sm">
+            <GraduationCapIcon />
         </div>
     )
 }
@@ -151,3 +161,4 @@ function AddInvolvementInfo() {
         </div>
     )
 }
+

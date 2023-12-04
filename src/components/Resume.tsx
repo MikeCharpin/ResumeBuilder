@@ -3,9 +3,10 @@ import { PersonalInfoProps } from '../example-data';
 
 type ResumeProps = {
     personalInfo: PersonalInfoProps
+    educationInfo: any
 }
 
-export default function Resume({ personalInfo }: ResumeProps) {
+export default function Resume({ personalInfo, educationInfo }: ResumeProps) {
     return (
         <div className="bg-white w-3/4 h-full p-4">
             <ResumeHeader
@@ -37,7 +38,9 @@ export default function Resume({ personalInfo }: ResumeProps) {
                         EDUCATION
                     </div>
                     <div className='border border-solid w-full border-slate-300 rounded-full' />
-                    <EducationSection />
+                    <EducationSection
+                        educationInfo={educationInfo}
+                    />
                 </div>
                 <div className='pb-1'>
                     <div className='text-sm font-thin'>
@@ -133,18 +136,21 @@ function ExperienceSection() {
     )
 }
 
-function EducationSection() {
+
+function EducationSection({educationInfo}) {
     return (
         <div className='w-full flex flex-col'>
-            <div className='text-sm font-semibold'>
-                Sub-Header
-            </div>
-            <div className='text-xs'>
-                dates
-            </div>
-            <div className='text-xs'>
-                Bullets
-            </div>
+            {educationInfo.map((education) =>
+                <div>
+                    <div className='text-sm font-semibold'>
+                        {education.educationTitle}
+                    </div>
+                    <div className='text-xs'>
+                        {education.educationSchoolName}  - {education.educationEndDate}
+                    </div>
+                </div>
+            )}
+            
         </div>
     )
 }

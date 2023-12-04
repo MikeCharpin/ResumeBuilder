@@ -17,15 +17,22 @@ function App() {
     setExperienceInfo({...experienceInfo, [key]: e.target.value})
   }
 
+  const [educationInfo, setEducationInfo] = useState(exampleData.section.educationInfo)
+    function handleExperienceInfoChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const { key } = e.target.dataset as {key:string}
+    setExperienceInfo({...experienceInfo, [key]: e.target.value})
+    }
 
   return (
   <div className="flex items-start justify-between bg-slate-400 h-screen gap-4 p-4">
     <Sidebar
       onChange={handlePersonalInfoChange}
       personalInfo={personalInfo}
+      educationInfo={educationInfo}
     />
     <Resume
       personalInfo={personalInfo}
+      educationInfo={educationInfo}
     />
   </div>
   )
