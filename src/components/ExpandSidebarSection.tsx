@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import {
     Accordion,
     AccordionContent,
@@ -24,13 +24,21 @@ export default function ExpandSidebarSection({sectionName, sectionState, FormCom
                 {sectionName}
             </div>
             <div className="border border-solid rounded-sm p-2">
-               
-                {sectionState.map((sectionBlockState) =>
-                    <FormComponent
-                        sectionBlockState={sectionBlockState}
-                        onChange={handleSectionChange}
-                    /> 
+            <Accordion type="multiple" >
+                {sectionState.map((sectionBlockState) => 
+                    <AccordionItem value={sectionBlockState.sectionBlockId}>
+                    <AccordionTrigger>{sectionBlockState.title}</AccordionTrigger>
+                    <AccordionContent>
+                        <FormComponent
+                            sectionBlockState={sectionBlockState}
+                            onChange={handleSectionChange}
+                        /> 
+                    </AccordionContent>
+                </AccordionItem>
                 )}
+            </Accordion>
+
+                
                
             </div>
             <Button variant="outline">Add {sectionName}</Button>
@@ -39,11 +47,5 @@ export default function ExpandSidebarSection({sectionName, sectionState, FormCom
     )
 }
 
-{/* <Accordion type="single" collapsible>
-  <AccordionItem value="item-1">
-    <AccordionTrigger>Is it accessible?</AccordionTrigger>
-    <AccordionContent>
-      Yes. It adheres to the WAI-ARIA design pattern.
-    </AccordionContent>
-  </AccordionItem>
-</Accordion> */}
+
+
