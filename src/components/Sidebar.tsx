@@ -2,23 +2,27 @@ import InputGroup from "./InputGroup"
 import { PersonalInfoProps } from "../example-data"
 import { GraduationCapIcon } from "lucide-react"
 import ExpandSidebarSection from "./ExpandSidebarSection"
+import { Input } from "./ui/input"
+import { Label } from "@radix-ui/react-label"
+import EducationForm from "./EducationForm"
 
 type SidebarProps = {
-    personalInfo: PersonalInfoProps
-    sectionState: any
-    onChange:( e: React.ChangeEvent<HTMLInputElement>) => void
+    personalInfo: any
+    sectionsState: any
+    handlePersonalInfoChange:(e: React.ChangeEvent<HTMLInputElement>) => void
+    handleSectionChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 
 
 
-export default function Sidebar({ onChange, personalInfo, sectionState}: SidebarProps) {
+export default function Sidebar({ handlePersonalInfoChange, personalInfo, handleSectionChange, sectionsState}: SidebarProps) {
     
   return (
-    <div className="flex flex-col gap-4 bg-white h-full w-1/4 p-2">
+    <div className="flex flex-col gap-4 bg-white h-full w-1/4 p-2 overflow-auto">
         <Template />
         <AddPersonalInfo
-            onChange={onChange}
+            onChange={handlePersonalInfoChange}
             fullName={personalInfo.fullName}
             email={personalInfo.email}
             location={personalInfo.location}
@@ -26,10 +30,30 @@ export default function Sidebar({ onChange, personalInfo, sectionState}: Sidebar
             website={personalInfo.website}
             phoneNumber={personalInfo.phoneNumber}
         />
+
         <ExpandSidebarSection
-            sectionName={"Education"}
-            sectionInfo={sectionState.educationInfo}
+            handleSectionChange={handleSectionChange}
+            sectionState={sectionsState.educationInfo}
+            sectionName="Education"
+            FormComponent={EducationForm}
         />
+        {/* <ExpandSidebarSection
+            onChange={onChangeSection}
+            sectionInfo={sectionsState.experienceInfo}
+            sectionName="Experience"
+        />
+        <ExpandSidebarSection
+            onChange={onChangeSection}
+            sectionInfo={sectionsState.projectInfo}
+            sectionName="Projects"
+        />
+        <ExpandSidebarSection
+            onChange={onChangeSection}
+            sectionInfo={sectionsState.involvementInfo}
+            sectionName="Involvement"
+        /> */}
+        
+       
 
         {/* <AddProjectInfo />
         <AddExperienceInfo />
@@ -69,60 +93,72 @@ function AddPersonalInfo({ onChange, fullName, email, phoneNumber, location, lin
                 Personal Details
             </div>
             <form className="flex flex-col gap-3">
-            <InputGroup 
-                id="full-name"
-                placeholder="name" 
-                label="Full Name"
-                type="text"
-                value={fullName}
-                onChange={handleChange}
-                data-key="fullName"
-            />
-            <InputGroup
-                id="email"
-                placeholder="email"
-                label="Email"
-                type="text"
-                value={email}
-                onChange={handleChange}
-                data-key="email"
-            />
-            <InputGroup
-                id="phoneNumber"
-                placeholder="phone number"
-                label="Phone Number"
-                type="text"
-                value={phoneNumber}
-                onChange={handleChange}
-                data-key="phoneNumber"
-            />            
-            <InputGroup
-                id="location"
-                placeholder="location"
-                label="Location"
-                type="text"
-                value={location}
-                onChange={handleChange}
-                data-key="location"
-            />
-            <InputGroup
-                id="linkedin"
-                placeholder="linkedin"
-                label="Linkedin"
-                type="text"
-                value={linkedin}
-                onChange={handleChange}
-                data-key="linkedin"
-            />
-            <InputGroup
-                id="website"
-                placeholder="website"
-                label="Website"
-                type="text"
-                value={website}
-                onChange={handleChange}
-                data-key="website"
-            />            
+                <div>
+                    <Label>Full Name</Label>
+                    <Input
+                        id="full-name"
+                        placeholder="full name"
+                        type="text"
+                        value={fullName}
+                        onChange={handleChange}
+                        data-key="fullName"
+                    />
+                </div>
+                <div>
+                    <Label>Email</Label>
+                    <Input
+                        id="email"
+                        placeholder="email"
+                        type="text"
+                        value={email}
+                        onChange={handleChange}
+                        data-key="email"
+                    />
+                </div>
+                <div>
+                    <Label>Phone Number</Label>
+                    <Input
+                        id="phoneNumber"
+                        placeholder="phone number"
+                        type="text"
+                        value={phoneNumber}
+                        onChange={handleChange}
+                        data-key="phoneNumber"
+                    />
+                </div>      
+                <div>
+                    <Label>Location</Label>
+                    <Input
+                        id="location"
+                        placeholder="location"
+                        type="text"
+                        value={location}
+                        onChange={handleChange}
+                        data-key="location"
+                    />
+                </div>
+                <div>
+                    <Label>Linkedin</Label>
+                    <Input
+                        id="linkedin"
+                        placeholder="linkedin"
+                        type="text"
+                        value={linkedin}
+                        onChange={handleChange}
+                        data-key="linkedin"
+                    />
+                </div>
+                <div>
+                    <Label>Website</Label>
+                    <Input
+                        id="website"
+                        placeholder="website URL"
+                        type="text"
+                        value={website}
+                        onChange={handleChange}
+                        data-key="website"
+                    />
+                </div>          
 
             </form>
         </div>

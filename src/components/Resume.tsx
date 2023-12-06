@@ -3,10 +3,10 @@ import { PersonalInfoProps } from '../example-data';
 
 type ResumeProps = {
     personalInfo: any
-    sectionState: any
+    sectionsState: any
 }
 
-export default function Resume({ personalInfo, sectionState }: ResumeProps) {
+export default function Resume({ personalInfo, sectionsState }: ResumeProps) {
     return (
         <div className="bg-white w-3/4 h-full p-4">
             <ResumeHeader
@@ -39,7 +39,7 @@ export default function Resume({ personalInfo, sectionState }: ResumeProps) {
                     </div>
                     <div className='border border-solid w-full border-slate-300 rounded-full' />
                     <EducationSection
-                        educationSection={sectionState.educationInfo}
+                        educationSection={sectionsState.educationInfo}
                     />
                 </div>
                 <div className='pb-1'>
@@ -146,10 +146,10 @@ function EducationSection({educationSection}: EducationSectionProps) {
             {educationSection.map((education: any) =>
                 <div>
                     <div className='text-sm font-semibold'>
-                        {education.educationTitle}
+                        {education.title}
                     </div>
                     <div className='text-xs'>
-                        {education.educationSchoolName}  - {education.educationEndDate}
+                        {education.educationSchoolName} - {education.educationLocation} {education.educationEndDate}
                     </div>
                 </div>
             )}

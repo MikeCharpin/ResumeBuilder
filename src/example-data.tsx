@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid'
+
 export type PersonalInfoProps = {
     fullName: string
     email: string
@@ -17,39 +19,53 @@ export const exampleData = {
         website: "MichaelCharpin.com",
         phoneNumber: "555-555-1234"
     },
-    projectInfo: {
-        projectTitle: "Task Prioritization",
-        projectStartDate: "September 2023",
-        projectEndDate: "present",
-        projectDesc: "This is the project description"
-    },
+    
     sections: {
+        projectInfo: [
+            {
+                title: "Task Prioritization",
+                projectStartDate: "September 2023",
+                projectEndDate: "present",
+                projectDesc: "This is the project description",
+                sectionBlockId: uuidv4(),
+            }
+        ],
         experienceInfo: [
             {
-                experienceTitle: "Project Manager",
+                title: "Project Manager",
                 experienceBusinessName: "Miniature World",
                 experienceStartDate: "July 2022",
                 experienceEndDate: "July 2023",
                 experienceDesc: "This is the jod description.",
-                experienceLocation: "Staten Island, NY"
+                experienceLocation: "Staten Island, NY",
+                sectionBlockId: uuidv4(),
             }
         ],
         educationInfo: [
             {
-                educationTitle: "Bachelor of Science in Industrial Design",
+                title: "Bachelor of Science in Industrial Design",
                 educationSchoolName: "Wentworth Insitute of Technology",
                 educationEndDate: "2013",
-                educationLocation: "Boston, MA"
+                educationLocation: "Boston, MA",
+                sectionBlockId: uuidv4(),
+            },
+            {
+                title: "test",
+                educationSchoolName: "test",
+                educationEndDate: "2013",
+                educationLocation: "Boston, MA",
+                sectionBlockId: uuidv4(),
             },
         ], 
         involvementInfo: [
             {
-                involvementTitle: "Dungeon Master",
+                title: "Dungeon Master",
                 involvementPosition: "After-School / Summer Camp Dungeons & Dragons",
                 involvementStartDate: "March 2020",
                 involvementEndDate: "present",
                 involvementDesc: "This is the involvement description.",
+                sectionBlockId: uuidv4(),
             }
         ] 
     }  
-}
+} 
