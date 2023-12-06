@@ -24,14 +24,18 @@ export default function Resume({ personalInfo, sectionsState }: ResumeProps) {
                         PROJECTS
                     </div>
                     <div className='border border-solid w-full border-slate-300 rounded-full' />
-                    <ProjectSection />
+                    <ProjectSection
+                        projectSection={sectionsState.projectInfo}    
+                    />
                 </div>
                 <div className='pb-1'>
                     <div className='text-sm font-thin'>
                         EXPERIENCE
                     </div>
                     <div className='border border-solid w-full border-slate-300 rounded-full' />
-                    <ExperienceSection />
+                    <ExperienceSection
+                        experienceSection={sectionsState.experienceInfo}
+                    />
                 </div>
                 <div className='pb-1'>
                     <div className='text-sm font-thin'>
@@ -47,7 +51,9 @@ export default function Resume({ personalInfo, sectionsState }: ResumeProps) {
                         INVOLVEMENT
                     </div>
                     <div className='border border-solid w-full border-slate-300 rounded-full' />
-                    <InvolvementSection />
+                    <InvolvementSection
+                        involvementSection={sectionsState.involvementInfo}
+                    />
                 </div>
             </div>
         </div>
@@ -95,43 +101,48 @@ function ResumeHeader({fullName, email, location, linkedin, website, phoneNumber
 
 
 
-function ProjectSection() {
+function ProjectSection({projectSection}) {
     return (
         <div>
-            <div className='text-sm font-semibold'>
-                Task Prioritization
-            </div>
-            <div className='text-xs'>
-                September 2023 - present
-            </div>
-            <div className='text-xs'>
-                • Led the architecture and development of a project prioritization application using NextJS, React, Shaden-ui, TailwindCSS, Dndkit, and Firebase.
-                <br />
-                • Conducted comprehensive discovery sessions and wireframing to optimize user experience (UX) and alleviate decision paralysis.
-                <br />
-                • Designed and implemented a robust data structure and algorithm for efficient storage and calculation of project priorities.
-                <br />
-            </div>
+            {projectSection.map((project: any) => 
+            <div>
+                    <div className='text-sm font-semibold'>
+                        {project.title}
+                    </div>
+                    <div className='text-xs'>
+                        {project.projectStartDate} - {project.projectEndDate}
+                    </div>
+                    <div className='text-xs'>
+                        {project.projectDesc}
+                    </div>
+                </div>
+            )}
+            
         </div>
-    )
-}
-function ExperienceSection() {
+)}
+
+function ExperienceSection({experienceSection}: any) {
     return (
         <div className='w-full flex flex-col'>
-            <div className="text-sm font-semibold">
-                Job Title
-            </div>
-            <div className='text-sm flex justify-between'>
+            {experienceSection.map((sectionBlock: any) => 
                 <div>
-                    Business name
+                    <div className="text-sm font-semibold">
+                        {sectionBlock.title}
+                    </div>
+                    <div className='text-sm flex justify-between'>
+                        <div>
+                            {sectionBlock.experienceBusinessName}
+                        </div>
+                        <div>
+                            {sectionBlock.experienceStartDate} - {sectionBlock.experienceEndDate}
+                        </div>
+                    </div>
+                    <div className='text-xs'>
+                        {sectionBlock.experienceDesc}
+                    </div>
                 </div>
-                <div>
-                    dates of employment
-                </div>
-            </div>
-            <div className='text-xs'>
-                Bullets
-            </div>
+            )}
+            
         </div>
     )
 }
@@ -158,18 +169,23 @@ function EducationSection({educationSection}: EducationSectionProps) {
     )
 }
 
-function InvolvementSection() {
+function InvolvementSection({involvementSection}: any) {
     return (
-        <div className='w-full flex flex-col'>
+        <div>
+            {involvementSection.map((involvement) => 
+                <div className='w-full flex flex-col'>
             <div className='text-sm font-semibold'>
-                Sub-Header
+                {involvement.title}
             </div>
             <div className='text-xs'>
-                dates
+                {involvement.involvementStartDate} - {involvement.involvementEndDate}
             </div>
             <div className='text-xs'>
-                Bullets
+                {involvement.involvementDesc}
             </div>
         </div>
+            )}
+        </div>
+        
     )
 }
