@@ -11,63 +11,40 @@ function App() {
 
   function handlePersonalInfoChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { key } = e.target.dataset as {key: string}
-    setPersonalInfo({ ...personalInfo, [key]: e.target.value })
+    setPersonalInfo((prevPersonalInfo) => ({ ...prevPersonalInfo, [key]: e.target.value }))
   }
 
   
    
-  // function handleSectionChange(e: React.ChangeEvent<HTMLInputElement>) {
-  //   const { key }: DOMStringMap = e.target.dataset
-  //   const inputValue = e.target.value
-  //   const form = e.target.closest(".section-form") 
-  //   const { id } = form
-  //   const { sectionName } = form.dataset
-  //   const sectionToChange = sectionsState[sectionName]
+
+  function handleSectionChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const { key }: DOMStringMap = e.target.dataset;
+    const inputValue: string = e.target.value;
+    const form: HTMLDivElement | null = e.target.closest(".section-form");
     
+    if (!form) {
+      return;
+    }
+
+    const { id }: { id?: string } = form;
+    const { sectionName }: { sectionName?: string } = form.dataset;
     
-  //   setSectionsState({
-  //     ...sectionsState,
-  //     [sectionName]: sectionToChange.map((sectionBlock) => {
-  //       if(sectionBlock.sectionBlockId === id) {
-  //         return sectionBlock[key] = inputValue
-          
-  //       } 
-        
-  //       return sectionsState
-  //     })
-  //   })
-  // }
-function handleSectionChange(e: React.ChangeEvent<HTMLInputElement>) {
-  const { key }: DOMStringMap = e.target.dataset;
-  const inputValue: string = e.target.value;
-  const form: HTMLDivElement | null = e.target.closest(".section-form");
-  
-  if (!form) {
-    // Handle the case when the form is not found
-    return;
+    if (!id || !sectionName) {
+      return;
+    }
+
+    const sectionToChange = sectionsState[sectionName];
+
+    setSectionsState((prevSectionState) => ({
+      ...prevSectionState,
+      [sectionName]: sectionToChange.map((sectionBlock) => {
+        if (sectionBlock.sectionBlockId === id) {
+          return { ...sectionBlock, [key!]: inputValue };
+        }
+        return sectionBlock;
+      }),
+    }));
   }
-
-  const { id }: { id?: string } = form;
-  const { sectionName }: { sectionName?: string } = form.dataset;
-  
-  if (!id || !sectionName) {
-    // Handle the case when id or sectionName is missing
-    return;
-  }
-
-  const sectionToChange = sectionsState[sectionName];
-
-  setSectionsState({
-    ...sectionsState,
-    [sectionName]: sectionToChange.map((sectionBlock) => {
-      if (sectionBlock.sectionBlockId === id) {
-        // Use a new object to ensure immutability
-        return { ...sectionBlock, [key!]: inputValue };
-      }
-      return sectionBlock;
-    }),
-  });
-}
 
 
 

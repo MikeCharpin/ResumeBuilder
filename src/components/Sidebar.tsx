@@ -5,6 +5,7 @@ import ExpandSidebarSection from "./ExpandSidebarSection"
 import { Input } from "./ui/input"
 import { Label } from "@radix-ui/react-label"
 import EducationForm from "./EducationForm"
+import ExperienceForm from "./ExperienceForm"
 
 type SidebarProps = {
     personalInfo: any
@@ -37,12 +38,13 @@ export default function Sidebar({ handlePersonalInfoChange, personalInfo, handle
             sectionName="Education"
             FormComponent={EducationForm}
         />
-        {/* <ExpandSidebarSection
-            onChange={onChangeSection}
-            sectionInfo={sectionsState.experienceInfo}
-            sectionName="Experience"
-        />
         <ExpandSidebarSection
+            handleSectionChange={handleSectionChange}
+            sectionState={sectionsState.experienceInfo}
+            sectionName="Experience"
+            FormComponent={ExperienceForm}
+        />
+        {/* <ExpandSidebarSection
             onChange={onChangeSection}
             sectionInfo={sectionsState.projectInfo}
             sectionName="Projects"
