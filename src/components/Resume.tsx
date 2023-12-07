@@ -18,7 +18,7 @@ export default function Resume({ personalInfo, sectionsState }: ResumeProps) {
                 phoneNumber={personalInfo.phoneNumber}
 
             />
-            <div className='w-full flex flex-col'>
+            <div className='w-full flex flex-col gap-4 p-4'>
                 <div className='pb-1'>
                     <div className='text-sm font-thin'>
                         PROJECTS
@@ -101,13 +101,18 @@ function ResumeHeader({fullName, email, location, linkedin, website, phoneNumber
 
 
 
-function ProjectSection({projectSection}) {
+function ProjectSection({projectSection}: any) {
     return (
         <div>
             {projectSection.map((project: any) => 
             <div>
-                    <div className='text-sm font-semibold'>
-                        {project.title}
+                    <div className="flex pt-2">
+                        <div className='text-sm font-semibold'>
+                            {project.title}
+                        </div>
+                        <div className='text-sm'>
+                            &nbsp;| {project.projectTech}
+                        </div>
                     </div>
                     <div className='text-xs'>
                         {project.projectStartDate} - {project.projectEndDate}
@@ -123,7 +128,7 @@ function ProjectSection({projectSection}) {
 
 function ExperienceSection({experienceSection}: any) {
     return (
-        <div className='w-full flex flex-col'>
+        <div className='w-full flex flex-col pt-2'>
             {experienceSection.map((sectionBlock: any) => 
                 <div>
                     <div className="text-sm font-semibold">
@@ -153,7 +158,7 @@ type EducationSectionProps ={
 
 function EducationSection({educationSection}: EducationSectionProps) {
     return (
-        <div className='w-full flex flex-col'>
+        <div className='w-full flex flex-col pt-2'>
             {educationSection.map((education: any) =>
                 <div>
                     <div className='text-sm font-semibold'>
@@ -173,7 +178,7 @@ function InvolvementSection({involvementSection}: any) {
     return (
         <div>
             {involvementSection.map((involvement) => 
-                <div className='w-full flex flex-col'>
+                <div className='w-full flex flex-col pt-2'>
             <div className='text-sm font-semibold'>
                 {involvement.title}
             </div>
