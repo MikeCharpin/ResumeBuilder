@@ -137,7 +137,7 @@ function ExperienceSection({experienceSection}: any) {
                             {sectionBlock.experienceStartDate} - {sectionBlock.experienceEndDate}
                         </div>
                     </div>
-                    <div className='text-xs'>
+                    <div className='text-xs whitespace-pre-wrap'>
                         {sectionBlock.experienceDesc}
                     </div>
                 </div>
