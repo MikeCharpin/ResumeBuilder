@@ -17,7 +17,7 @@ function App() {
   
    
 
-  function handleSectionChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleSectionChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) {
     const { key }: DOMStringMap = e.target.dataset;
     const inputValue: string = e.target.value;
     const form: HTMLDivElement | null = e.target.closest(".section-form");
