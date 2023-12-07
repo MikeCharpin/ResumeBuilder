@@ -24,8 +24,10 @@ export const exampleData = {
         projectInfo: [
             {
                 title: "Task Prioritization",
+                projectTech: "React, Shadcn, TypeScript, TailwindCSS",
                 projectStartDate: "September 2023",
                 projectEndDate: "present",
+                projectLink: "www.MichaelCharpin.com",
                 projectDesc: "This is the project description",
                 sectionBlockId: uuidv4(),
             }
@@ -63,6 +65,7 @@ export const exampleData = {
                 involvementPosition: "After-School / Summer Camp Dungeons & Dragons",
                 involvementStartDate: "March 2020",
                 involvementEndDate: "present",
+                involvementLink: "www.TheDeliberateMyth.com",
                 involvementDesc: "This is the involvement description.",
                 sectionBlockId: uuidv4(),
             }
