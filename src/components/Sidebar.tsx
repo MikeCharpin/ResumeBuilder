@@ -1,4 +1,4 @@
-import { BriefcaseIcon, FolderRootIcon, GraduationCapIcon, HeartHandshakeIcon } from "lucide-react"
+import { BriefcaseIcon, FileSpreadsheetIcon, FolderRootIcon, GraduationCapIcon, HeartHandshakeIcon, Trash2Icon } from "lucide-react"
 import ExpandSidebarSection from "./ExpandSidebarSection"
 import EducationForm from "./EducationForm"
 import ExperienceForm from "./ExperienceForm"
@@ -18,6 +18,7 @@ type SidebarProps = {
     createProjectForm: (e: React.ChangeEvent<HTMLInputElement>) => void
     createInvolvementForm: (e: React.ChangeEvent<HTMLInputElement>) => void
     clearResume: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+    templateData: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 
 }
 
@@ -34,6 +35,7 @@ export default function Sidebar({
     createProjectForm,
     createInvolvementForm,
     clearResume,
+    templateData,
 }: SidebarProps) {
     
   return (
@@ -84,8 +86,9 @@ export default function Sidebar({
             createForm={createInvolvementForm}
 
         />
-        
-        <Button onClick={clearResume} variant={"destructive"}>Clear Resume</Button>
+        <Button variant={"secondary"} onClick={templateData}><FileSpreadsheetIcon />&nbsp;Reset Template
+        </Button>
+        <Button onClick={clearResume} variant={"destructive"}><Trash2Icon />&nbsp;Clear Resume</Button>
     </div>
   )
 }

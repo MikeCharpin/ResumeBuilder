@@ -111,6 +111,11 @@ function App() {
     })
     }
 
+    function templateData(){
+      setSectionsState(exampleData.sections),
+      setPersonalInfo(exampleData.personalInfo)
+    }
+
 
 
 
@@ -126,6 +131,7 @@ function App() {
       personalInfo={personalInfo}
       sectionsState={sectionsState}
       clearResume={clearResume}
+      templateData={templateData}
     />
     <Resume
       personalInfo={personalInfo}
