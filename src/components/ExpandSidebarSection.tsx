@@ -15,11 +15,12 @@ export type ExpandSidebarSectionProps = {
     sectionState: any
     FormComponent: any
     FormIcon: any
+    createForm: (e: React.ChangeEvent<HTMLInputElement>) => void
     handleSectionChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
   
 
-export default function ExpandSidebarSection({sectionName, sectionState, FormComponent, handleSectionChange, FormIcon}: ExpandSidebarSectionProps) {
+export default function ExpandSidebarSection({sectionName, sectionState, FormComponent, handleSectionChange, FormIcon, createForm}: ExpandSidebarSectionProps) {
     return(
         <div className="flex flex-col p-3 gap-3 border border-solid rounded-sm">
             <div className="flex font-bold">
@@ -43,7 +44,7 @@ export default function ExpandSidebarSection({sectionName, sectionState, FormCom
                 
                
             </div>
-            <Button variant="outline"><PlusIcon />Add {sectionName}</Button>
+            <Button variant="outline" onClick={createForm}><PlusIcon />Add {sectionName}</Button>
         </div>
 
     )
