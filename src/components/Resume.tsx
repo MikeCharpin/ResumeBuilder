@@ -117,7 +117,7 @@ function ProjectSection({projectSection}: any) {
                     <div className='text-xs'>
                         {project.projectStartDate} - {project.projectEndDate}
                     </div>
-                    <div className='text-xs'>
+                    <div className='text-xs whitespace-pre-wrap'>
                         {project.projectDesc}
                     </div>
                 </div>
@@ -185,7 +185,7 @@ function InvolvementSection({involvementSection}: any) {
             <div className='text-xs'>
                 {involvement.involvementStartDate} - {involvement.involvementEndDate}
             </div>
-            <div className='text-xs'>
+            <div className='text-xs whitespace-pre-wrap'>
                 {involvement.involvementDesc}
             </div>
         </div>
