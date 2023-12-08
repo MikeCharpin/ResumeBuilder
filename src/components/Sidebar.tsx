@@ -40,7 +40,6 @@ export default function Sidebar({
     
   return (
     <div className="flex flex-col gap-4 bg-white h-full w-1/4 p-2 overflow-auto">
-        <Template />
         <AddPersonalInfo
             onChange={handlePersonalInfoChange}
             fullName={personalInfo.fullName}
@@ -92,12 +91,3 @@ export default function Sidebar({
     </div>
   )
 }
-
-function Template() {
-    return(
-        <div>
-            Template
-        </div>
-    )
-}
-
