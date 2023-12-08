@@ -5,6 +5,7 @@ import ExperienceForm from "./ExperienceForm"
 import ProjectsForm from "./ProjectsForm"
 import InvolvementForm from "./InvolvementForm"
 import AddPersonalInfo from "./AddPersonalInfo"
+import { Button } from "./ui/button"
 
 
 type SidebarProps = {
@@ -12,12 +13,28 @@ type SidebarProps = {
     sectionsState: any
     handlePersonalInfoChange:(e: React.ChangeEvent<HTMLInputElement>) => void
     handleSectionChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    createEducationForm: (e: React.ChangeEvent<HTMLInputElement>) => void
+    createExperienceForm: (e: React.ChangeEvent<HTMLInputElement>) => void
+    createProjectForm: (e: React.ChangeEvent<HTMLInputElement>) => void
+    createInvolvementForm: (e: React.ChangeEvent<HTMLInputElement>) => void
+    clearResume: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+
 }
 
 
 
 
-export default function Sidebar({ handlePersonalInfoChange, personalInfo, handleSectionChange, sectionsState}: SidebarProps) {
+export default function Sidebar({ 
+    handlePersonalInfoChange, 
+    personalInfo, 
+    handleSectionChange, 
+    sectionsState, 
+    createEducationForm,
+    createExperienceForm,
+    createProjectForm,
+    createInvolvementForm,
+    clearResume,
+}: SidebarProps) {
     
   return (
     <div className="flex flex-col gap-4 bg-white h-full w-1/4 p-2 overflow-auto">
@@ -38,6 +55,7 @@ export default function Sidebar({ handlePersonalInfoChange, personalInfo, handle
             sectionName="Education"
             FormComponent={EducationForm}
             FormIcon={GraduationCapIcon}
+            createForm={createEducationForm}
         />
         <ExpandSidebarSection
             handleSectionChange={handleSectionChange}
@@ -45,6 +63,8 @@ export default function Sidebar({ handlePersonalInfoChange, personalInfo, handle
             sectionName="Experience"
             FormComponent={ExperienceForm}
             FormIcon={ BriefcaseIcon }
+            createForm={createExperienceForm}
+
         />
         <ExpandSidebarSection
             handleSectionChange={handleSectionChange}
@@ -52,6 +72,8 @@ export default function Sidebar({ handlePersonalInfoChange, personalInfo, handle
             sectionName="Projects"
             FormComponent={ProjectsForm}
             FormIcon={ FolderRootIcon }
+            createForm={createProjectForm}
+
         />
         <ExpandSidebarSection
             handleSectionChange={handleSectionChange}
@@ -59,10 +81,11 @@ export default function Sidebar({ handlePersonalInfoChange, personalInfo, handle
             sectionName="Involvement"
             FormComponent={InvolvementForm}
             FormIcon={ HeartHandshakeIcon }
+            createForm={createInvolvementForm}
 
         />
         
-
+        <Button onClick={clearResume} variant={"destructive"}>Clear Resume</Button>
     </div>
   )
 }
