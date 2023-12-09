@@ -120,7 +120,7 @@ function App() {
 
 
   return (
-  <div className="flex items-start justify-between bg-slate-400 h-screen gap-4 p-4">
+  <div className="flex items-start justify-between bg-stone-100 h-screen gap-4 p-4">
     <Sidebar
       handlePersonalInfoChange={handlePersonalInfoChange}
       handleSectionChange={handleSectionChange}

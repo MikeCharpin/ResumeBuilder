@@ -25,7 +25,7 @@ export default function AddPersonalInfo({ onChange, fullName, email, phoneNumber
         onChange(e as React.ChangeEvent<HTMLInputElement>)
     }
     return(
-        <div className="flex flex-col gap-1 p-3 border border-solid rounded-sm">
+        <div className="flex flex-col gap-1 p-3 rounded-xl bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100">
             <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
                 <div className="flex items-center">

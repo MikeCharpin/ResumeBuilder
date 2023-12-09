@@ -7,7 +7,6 @@ import {
   } from "@/components/ui/accordion"
     
 import { Button } from "./ui/button"
-import EducationForm from "./EducationForm"
 import { PlusIcon } from "lucide-react"
 
 export type ExpandSidebarSectionProps = {
@@ -22,11 +21,11 @@ export type ExpandSidebarSectionProps = {
 
 export default function ExpandSidebarSection({sectionName, sectionState, FormComponent, handleSectionChange, FormIcon, createForm}: ExpandSidebarSectionProps) {
     return(
-        <div className="flex flex-col p-3 gap-3 border border-solid rounded-sm">
+        <div className="flex flex-col p-4 gap-3  rounded-xl bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100">
             <div className="flex font-bold">
                <FormIcon /> &nbsp; {sectionName}
             </div>
-            <div className="border border-solid rounded-sm p-2">
+            <div className=" rounded-sm ">
             <Accordion type="multiple" >
                 {sectionState.map((sectionBlockState) => 
                     <AccordionItem value={sectionBlockState.sectionBlockId}>
@@ -44,7 +43,7 @@ export default function ExpandSidebarSection({sectionName, sectionState, FormCom
                 
                
             </div>
-            <Button variant="outline" onClick={createForm}><PlusIcon />Add {sectionName}</Button>
+            <Button variant="secondary" onClick={createForm} ><PlusIcon />Add {sectionName}</Button>
         </div>
 
     )

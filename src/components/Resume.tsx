@@ -8,7 +8,7 @@ type ResumeProps = {
 
 export default function Resume({ personalInfo, sectionsState }: ResumeProps) {
     return (
-        <div className="bg-white w-3/4 h-full p-4">
+        <div className="bg-white w-3/4 h-full py-10 px-6">
             <ResumeHeader
                 fullName={personalInfo.fullName}
                 email={personalInfo.email}
@@ -39,15 +39,6 @@ export default function Resume({ personalInfo, sectionsState }: ResumeProps) {
                 </div>
                 <div className='pb-1'>
                     <div className='text-sm font-thin'>
-                        EDUCATION
-                    </div>
-                    <div className='border border-solid w-full border-slate-300 rounded-full' />
-                    <EducationSection
-                        educationSection={sectionsState.educationInfo}
-                    />
-                </div>
-                <div className='pb-1'>
-                    <div className='text-sm font-thin'>
                         INVOLVEMENT
                     </div>
                     <div className='border border-solid w-full border-slate-300 rounded-full' />
@@ -55,6 +46,16 @@ export default function Resume({ personalInfo, sectionsState }: ResumeProps) {
                         involvementSection={sectionsState.involvementInfo}
                     />
                 </div>
+                <div className='pb-1'>
+                    <div className='text-sm font-thin'>
+                        EDUCATION
+                    </div>
+                    <div className='border border-solid w-full border-slate-300 rounded-full' />
+                    <EducationSection
+                        educationSection={sectionsState.educationInfo}
+                    />
+                </div>
+
             </div>
         </div>
     )
@@ -103,7 +104,7 @@ function ResumeHeader({fullName, email, location, linkedin, website, phoneNumber
 
 function ProjectSection({projectSection}: any) {
     return (
-        <div>
+        <div className='w-full flex flex-col gap-3' >
             {projectSection.map((project: any) => 
             <div>
                     <div className="flex pt-2">
@@ -115,9 +116,9 @@ function ProjectSection({projectSection}: any) {
                         </div>
                     </div>
                     <div className='text-xs'>
-                        {project.projectStartDate} - {project.projectEndDate}
+                        {project.projectLink}   | {project.projectStartDate} - {project.projectEndDate}
                     </div>
-                    <div className='text-xs whitespace-pre-wrap'>
+                    <div className='text-xs whitespace-pre-line'>
                         {project.projectDesc}
                     </div>
                 </div>
@@ -128,7 +129,7 @@ function ProjectSection({projectSection}: any) {
 
 function ExperienceSection({experienceSection}: any) {
     return (
-        <div className='w-full flex flex-col pt-2'>
+        <div className='w-full flex flex-col pt-2 gap-3'>
             {experienceSection.map((sectionBlock: any) => 
                 <div>
                     <div className="text-sm font-semibold">
@@ -139,7 +140,7 @@ function ExperienceSection({experienceSection}: any) {
                             {sectionBlock.experienceBusinessName}
                         </div>
                         <div>
-                            {sectionBlock.experienceStartDate} - {sectionBlock.experienceEndDate}
+                            {sectionBlock.experienceStartDate} - {sectionBlock.experienceEndDate} | {sectionBlock.experienceLocation}
                         </div>
                     </div>
                     <div className='text-xs whitespace-pre-wrap'>
@@ -158,14 +159,14 @@ type EducationSectionProps ={
 
 function EducationSection({educationSection}: EducationSectionProps) {
     return (
-        <div className='w-full flex flex-col pt-2'>
+        <div className='w-full flex flex-col pt-2 gap-3'>
             {educationSection.map((education: any) =>
                 <div>
                     <div className='text-sm font-semibold'>
                         {education.title}
                     </div>
                     <div className='text-xs'>
-                        {education.educationSchoolName} - {education.educationLocation} {education.educationEndDate}
+                        {education.educationSchoolName} - {education.educationLocation} - {education.educationEndDate}
                     </div>
                 </div>
             )}
@@ -183,7 +184,7 @@ function InvolvementSection({involvementSection}: any) {
                 {involvement.title}
             </div>
             <div className='text-xs'>
-                {involvement.involvementStartDate} - {involvement.involvementEndDate}
+                {involvement.involvementPosition}  -  {involvement.involvementStartDate} - {involvement.involvementEndDate}
             </div>
             <div className='text-xs whitespace-pre-wrap'>
                 {involvement.involvementDesc}
