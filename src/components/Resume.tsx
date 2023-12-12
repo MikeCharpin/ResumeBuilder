@@ -1,9 +1,9 @@
 import { MapPinIcon, SmartphoneIcon, LinkedinIcon, SendIcon, GlobeIcon } from 'lucide-react';
-import { PersonalInfoProps } from '../example-data';
+import { EducationInfo, ExperienceInfo, PersonalInfo, InvolvementInfo, ProjectInfo, SectionData } from '../example-data';
 
 type ResumeProps = {
-    personalInfo: any
-    sectionsState: any
+    personalInfo: PersonalInfo
+    sectionsState: SectionData
 }
 
 export default function Resume({ personalInfo, sectionsState }: ResumeProps) {
@@ -61,9 +61,9 @@ export default function Resume({ personalInfo, sectionsState }: ResumeProps) {
     )
 } 
 
-type ResumeHeaderProps = PersonalInfoProps
 
-function ResumeHeader({fullName, email, location, linkedin, website, phoneNumber}: ResumeHeaderProps) {
+
+function ResumeHeader({fullName, email, location, linkedin, website, phoneNumber}: PersonalInfo) {
     return (
         <div className="flex flex-col items-center justify-center">
             <div className="text-2xl font-bold">
@@ -98,15 +98,15 @@ function ResumeHeader({fullName, email, location, linkedin, website, phoneNumber
 }
 
 
+type ProjectSectionProps = {
+  projectSection: ProjectInfo[];
+};
 
-
-
-
-function ProjectSection({projectSection}: any) {
+function ProjectSection({ projectSection }: ProjectSectionProps) {
     return (
         <div className='w-full flex flex-col gap-3' >
-            {projectSection.map((project: any) => 
-            <div>
+            {projectSection.map((project: ProjectInfo) => 
+            <div key={project.sectionBlockId}>
                     <div className="flex pt-2">
                         <div className='text-sm font-semibold'>
                             {project.title}
@@ -127,24 +127,29 @@ function ProjectSection({projectSection}: any) {
         </div>
 )}
 
-function ExperienceSection({experienceSection}: any) {
+
+type ExperienceSectionProps = {
+    experienceSection: ExperienceInfo[]
+}
+
+function ExperienceSection({experienceSection}: ExperienceSectionProps) {
     return (
         <div className='w-full flex flex-col pt-2 gap-3'>
-            {experienceSection.map((sectionBlock: any) => 
-                <div>
+            {experienceSection.map((experience: ExperienceInfo) => 
+                <div key={experience.sectionBlockId}>
                     <div className="text-sm font-semibold">
-                        {sectionBlock.title}
+                        {experience.title}
                     </div>
                     <div className='text-sm flex justify-between'>
                         <div>
-                            {sectionBlock.experienceBusinessName}
+                            {experience.experienceBusinessName}
                         </div>
                         <div>
-                            {sectionBlock.experienceStartDate} - {sectionBlock.experienceEndDate} | {sectionBlock.experienceLocation}
+                            {experience.experienceStartDate} - {experience.experienceEndDate} | {experience.experienceLocation}
                         </div>
                     </div>
                     <div className='text-xs whitespace-pre-wrap'>
-                        {sectionBlock.experienceDesc}
+                        {experience.experienceDesc}
                     </div>
                 </div>
             )}
@@ -153,15 +158,16 @@ function ExperienceSection({experienceSection}: any) {
     )
 }
 
-type EducationSectionProps ={
-    educationSection: any
+type EducationSectionProps = {
+    educationSection: EducationInfo[]
 }
+
 
 function EducationSection({educationSection}: EducationSectionProps) {
     return (
         <div className='w-full flex flex-col pt-2 gap-3'>
-            {educationSection.map((education: any) =>
-                <div>
+            {educationSection.map((education: EducationInfo) =>
+                <div key={education.sectionBlockId}>
                     <div className='text-sm font-semibold'>
                         {education.title}
                     </div>
@@ -175,12 +181,16 @@ function EducationSection({educationSection}: EducationSectionProps) {
     )
 }
 
-function InvolvementSection({involvementSection}: any) {
+type InvolvementSectionProps = {
+    involvementSection: InvolvementInfo[]
+}
+
+function InvolvementSection({involvementSection}: InvolvementSectionProps) {
     return (
-        <div>
-            {involvementSection.map((involvement) => 
-                <div className='w-full flex flex-col pt-2'>
-            <div className='flex'>
+        <div className='w-full flex flex-col pt-2'>
+            {involvementSection.map((involvement: InvolvementInfo) => 
+                <div key={involvement.sectionBlockId}>
+            <div className='flex' >
                 <div className='text-sm font-semibold'>
                     {involvement.title} |
                 </div>
