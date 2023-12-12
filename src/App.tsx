@@ -4,13 +4,14 @@ import Sidebar from "./components/Sidebar"
 import { PersonalInfo, SectionData, exampleData, ProjectInfo, ExperienceInfo, InvolvementInfo, EducationInfo,  } from "./example-data"
 import { v4 as uuidv4 } from 'uuid'
 
-type SectionBlock = ProjectInfo | ExperienceInfo | InvolvementInfo | EducationInfo
+export type SectionBlock = ProjectInfo | ExperienceInfo | InvolvementInfo | EducationInfo
+type SectionName = keyof SectionData
 
 type SectionsState = {
-  projectInfo: SectionBlock[]
-  experienceInfo: SectionBlock[]
-  involvementInfo: SectionBlock[]
-  educationInfo: SectionBlock[]
+  projectInfo: ProjectInfo[]
+  experienceInfo: ExperienceInfo[]
+  involvementInfo: InvolvementInfo[]
+  educationInfo: EducationInfo[]
 }
 
 export default function App() {
@@ -47,11 +48,12 @@ export default function App() {
     }));
   }
 
-  function createForm(sectionName: keyof SectionData, newSectionBlock: SectionBlock) {
-    const sectionClone = structuredClone(sectionsState[sectionName])
-    sectionClone.push(newSectionBlock)
+  
+
+  function createForm(sectionName: SectionName, newSectionBlock: SectionBlock) {
+    const sectionClone = [...sectionsState[sectionName]]
+    sectionClone.push(newSectionBlock as SectionBlock)
     setSectionsState({...sectionsState, [sectionName]: sectionClone})
-    console.log(sectionsState)
   }
 
   function createEducationForm() {
