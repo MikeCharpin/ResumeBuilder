@@ -1,31 +1,36 @@
 import { useState } from "react"
 import Resume from "./components/Resume"
 import Sidebar from "./components/Sidebar"
-import { exampleData } from "./example-data"
+import { PersonalInfo, SectionData, exampleData, ProjectInfo, ExperienceInfo, InvolvementInfo, EducationInfo,  } from "./example-data"
 import { v4 as uuidv4 } from 'uuid'
 
+type SectionBlock = ProjectInfo | ExperienceInfo | InvolvementInfo | EducationInfo
 
+type SectionsState = {
+  projectInfo: SectionBlock[]
+  experienceInfo: SectionBlock[]
+  involvementInfo: SectionBlock[]
+  educationInfo: SectionBlock[]
+}
 
-
-function App() {
-  const [personalInfo, setPersonalInfo] = useState(exampleData.personalInfo)
-  const [sectionsState, setSectionsState] = useState(exampleData.sections)
-  const [prevState, setPrevState] = useState(null)
+export default function App() {
+  const [personalInfo, setPersonalInfo] = useState<PersonalInfo>(exampleData.personalInfo)
+  const [sectionsState, setSectionsState] = useState<SectionsState>(exampleData.sections)
 
   function handlePersonalInfoChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const { key } = e.target.dataset as {key: string}
+    const { key } = e.target.dataset as {key: keyof PersonalInfo}
     setPersonalInfo((prevPersonalInfo) => ({ ...prevPersonalInfo, [key]: e.target.value }))
   }
 
   function handleSectionChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) {
-    const { key }: DOMStringMap = e.target.dataset;
+    const { key } = e.target.dataset as {key: keyof SectionBlock};
     const inputValue: string = e.target.value;
     const form: HTMLDivElement | null = e.target.closest(".section-form");
     if (!form) {
       return;
     }
     const { id }: { id?: string } = form;
-    const { sectionName }: { sectionName?: string } = form.dataset;
+    const { sectionName }: { sectionName?: keyof SectionsState } = form.dataset;
     if (!id || !sectionName) {
       return;
     }
@@ -33,7 +38,7 @@ function App() {
 
     setSectionsState((prevSectionState) => ({
       ...prevSectionState,
-      [sectionName]: sectionToChange.map((sectionBlock) => {
+      [sectionName]: sectionToChange.map((sectionBlock: SectionBlock) => {
         if (sectionBlock.sectionBlockId === id) {
           return { ...sectionBlock, [key!]: inputValue };
         }
@@ -42,8 +47,7 @@ function App() {
     }));
   }
 
-  function createForm(sectionName, newSectionBlock) {
-    setPrevState(null)
+  function createForm(sectionName: keyof SectionData, newSectionBlock: SectionBlock) {
     const sectionClone = structuredClone(sectionsState[sectionName])
     sectionClone.push(newSectionBlock)
     setSectionsState({...sectionsState, [sectionName]: sectionClone})
@@ -75,9 +79,11 @@ function App() {
     function createProjectForm() {
     createForm("projectInfo", {
       title: "",
-      projectSchoolName: "",
+      projectTech: "",
+      projectStartDate: "",
       projectEndDate: "",
-      projectLocation: "",
+      projectLink: "",
+      projectDesc:"",
       sectionBlockId: uuidv4(),
     })
   }
@@ -116,9 +122,6 @@ function App() {
       setPersonalInfo(exampleData.personalInfo)
     }
 
-
-
-
   return (
   <div className="flex items-start justify-between bg-stone-100 h-screen gap-4 p-4">
     <Sidebar
@@ -140,5 +143,3 @@ function App() {
   </div>
   )
 }
-
-export default App
