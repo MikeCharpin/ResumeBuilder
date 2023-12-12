@@ -180,11 +180,16 @@ function InvolvementSection({involvementSection}: any) {
         <div>
             {involvementSection.map((involvement) => 
                 <div className='w-full flex flex-col pt-2'>
-            <div className='text-sm font-semibold'>
-                {involvement.title}
+            <div className='flex'>
+                <div className='text-sm font-semibold'>
+                    {involvement.title} |
+                </div>
+                <div className='text-sm'>
+                    &nbsp;{involvement.involvementPosition}
+                </div>
             </div>
-            <div className='text-xs'>
-                {involvement.involvementPosition}  -  {involvement.involvementStartDate} - {involvement.involvementEndDate}
+            <div className='text-xs pb-1'>
+                {involvement.involvementLink} | {involvement.involvementStartDate} - {involvement.involvementEndDate}
             </div>
             <div className='text-xs whitespace-pre-wrap'>
                 {involvement.involvementDesc}

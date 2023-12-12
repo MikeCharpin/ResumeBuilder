@@ -98,7 +98,7 @@ export const exampleData = {
         involvementInfo: [
             {
                 title: "Dungeon Master",
-                involvementPosition: "After-School / Summer Camp Dungeons & Dragons",
+                involvementPosition: "After-School / Summer Camp Dungeons & Dragons for Kids",
                 involvementStartDate: "March 2020",
                 involvementEndDate: "present",
                 involvementLink: "www.TheDeliberateMyth.com",
