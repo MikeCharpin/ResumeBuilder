@@ -7,16 +7,9 @@ import { v4 as uuidv4 } from 'uuid'
 export type SectionBlock = ProjectInfo | ExperienceInfo | InvolvementInfo | EducationInfo
 type SectionName = keyof SectionData
 
-type SectionsState = {
-  projectInfo: ProjectInfo[]
-  experienceInfo: ExperienceInfo[]
-  involvementInfo: InvolvementInfo[]
-  educationInfo: EducationInfo[]
-}
-
 export default function App() {
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo>(exampleData.personalInfo)
-  const [sectionsState, setSectionsState] = useState<SectionsState>(exampleData.sections)
+  const [sectionsState, setSectionsState] = useState<SectionData>(exampleData.sections)
 
   function handlePersonalInfoChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { key } = e.target.dataset as {key: keyof PersonalInfo}
@@ -31,7 +24,7 @@ export default function App() {
       return;
     }
     const { id }: { id?: string } = form;
-    const { sectionName }: { sectionName?: keyof SectionsState } = form.dataset;
+    const { sectionName }: { sectionName?: keyof SectionData } = form.dataset;
     if (!id || !sectionName) {
       return;
     }

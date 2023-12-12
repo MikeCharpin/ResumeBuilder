@@ -13,18 +13,15 @@ type SidebarProps = {
     personalInfo: PersonalInfo
     sectionsState: SectionData
     handlePersonalInfoChange:(e: React.ChangeEvent<HTMLInputElement>) => void
-    handleSectionChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-    createEducationForm: (e: React.ChangeEvent<HTMLInputElement>) => void
-    createExperienceForm: (e: React.ChangeEvent<HTMLInputElement>) => void
-    createProjectForm: (e: React.ChangeEvent<HTMLInputElement>) => void
-    createInvolvementForm: (e: React.ChangeEvent<HTMLInputElement>) => void
+    handleSectionChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+    createEducationForm: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+    createExperienceForm: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+    createProjectForm: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+    createInvolvementForm: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
     clearResume: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
     templateData: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 
 }
-
-
-
 
 export default function Sidebar({ 
     handlePersonalInfoChange, 
@@ -90,8 +87,6 @@ export default function Sidebar({
             FormIcon={GraduationCapIcon}
             createForm={createEducationForm}
         />
-
-
     </div>
   )
 }

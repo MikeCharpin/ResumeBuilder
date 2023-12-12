@@ -2,15 +2,12 @@ import { EducationInfo } from "@/example-data"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 
-
 type EducationFormProps = {
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
     sectionBlockState: EducationInfo
 }
 
 export default function EducationForm({ onChange, sectionBlockState }: EducationFormProps) {
-
-
     return(
         <div  className="flex flex-col gap-1 p-3 border border-solid rounded-sm">
             <form 
@@ -63,7 +60,6 @@ export default function EducationForm({ onChange, sectionBlockState }: Education
                         data-key="educationLocation"
                     />
                 </div>        
-
             </form>
         </div>
     )
