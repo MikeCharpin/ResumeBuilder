@@ -1,5 +1,59 @@
 import { v4 as uuidv4 } from 'uuid'
 
+export type PersonalInfo = {
+  fullName: string;
+  email: string;
+  location: string;
+  linkedin: string;
+  website: string;
+  phoneNumber: string;
+};
+
+export type ProjectInfo = {
+  title: string;
+  projectTech: string;
+  projectStartDate: string;
+  projectEndDate: string;
+  projectLink: string;
+  projectDesc: string;
+  sectionBlockId: string;
+};
+
+export type ExperienceInfo = {
+  title: string;
+  experienceBusinessName: string;
+  experienceStartDate: string;
+  experienceEndDate: string;
+  experienceDesc: string;
+  experienceLocation: string;
+  sectionBlockId: string;
+};
+
+export type EducationInfo = {
+  title: string;
+  educationSchoolName: string;
+  educationEndDate: string;
+  educationLocation: string;
+  sectionBlockId: string;
+};
+
+export type InvolvementInfo = {
+  title: string;
+  involvementPosition: string;
+  involvementStartDate: string;
+  involvementEndDate: string;
+  involvementLink: string;
+  involvementDesc: string;
+  sectionBlockId: string;
+};
+
+export type SectionData = {
+  projectInfo: ProjectInfo[];
+  experienceInfo: ExperienceInfo[];
+  educationInfo: EducationInfo[];
+  involvementInfo: InvolvementInfo[];
+};
+
 export type PersonalInfoProps = {
     fullName: string
     email: string
@@ -10,7 +64,7 @@ export type PersonalInfoProps = {
   }
 
 
-export const exampleData = {
+export const exampleData: { personalInfo: PersonalInfo; sections:SectionData } = {
     personalInfo: {
         fullName: "Mike Charpin",
         email: "Michael.Charpin@gmail.com",
