@@ -19,6 +19,7 @@ export type ProjectInfo = {
   sectionBlockId: string;
 };
 
+
 export type ExperienceInfo = {
   title: string;
   experienceBusinessName: string;
@@ -53,15 +54,6 @@ export type SectionData = {
   educationInfo: EducationInfo[];
   involvementInfo: InvolvementInfo[];
 };
-
-export type PersonalInfoProps = {
-    fullName: string
-    email: string
-    location: string
-    linkedin: string
-    website: string
-    phoneNumber: string
-  }
 
 
 export const exampleData: { personalInfo: PersonalInfo; sections:SectionData } = {
