@@ -1,3 +1,4 @@
+import { InvolvementInfo } from "@/example-data"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Textarea } from "@/components/ui/textarea"
@@ -5,8 +6,8 @@ import { Textarea } from "@/components/ui/textarea"
 
 
 type InvolvementFormProps = {
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-    sectionBlockState: any
+    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+    sectionBlockState: InvolvementInfo
 }
 
 export default function InvolvementForm({ onChange, sectionBlockState }: InvolvementFormProps) {
@@ -65,15 +66,14 @@ export default function InvolvementForm({ onChange, sectionBlockState }: Involve
                     />
                 </div>
                 <div>
-                <Label>Description</Label>   
-                <Textarea
-                    id="involvementDesc"
-                    placeholder="What did you accomplish in this position?"
-                    type="text"
-                    value={sectionBlockState.involvementDesc}
-                    onChange={onChange}
-                    data-key="involvementDesc"
-                />
+                    <Label>Description</Label>   
+                    <Textarea
+                        id="involvementDesc"
+                        placeholder="What did you accomplish in this position?"
+                        value={sectionBlockState.involvementDesc}
+                        onChange={onChange}
+                        data-key="involvementDesc"
+                    />
                 </div>        
 
             </form>

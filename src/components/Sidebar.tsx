@@ -6,11 +6,12 @@ import ProjectsForm from "./ProjectsForm"
 import InvolvementForm from "./InvolvementForm"
 import AddPersonalInfo from "./AddPersonalInfo"
 import { Button } from "./ui/button"
+import { PersonalInfo, SectionData } from "@/example-data"
 
 
 type SidebarProps = {
-    personalInfo: any
-    sectionsState: any
+    personalInfo: PersonalInfo
+    sectionsState: SectionData
     handlePersonalInfoChange:(e: React.ChangeEvent<HTMLInputElement>) => void
     handleSectionChange: (e: React.ChangeEvent<HTMLInputElement>) => void
     createEducationForm: (e: React.ChangeEvent<HTMLInputElement>) => void

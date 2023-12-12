@@ -1,10 +1,11 @@
+import { EducationInfo } from "@/example-data"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 
 
 type EducationFormProps = {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-    sectionBlockState: any
+    sectionBlockState: EducationInfo
 }
 
 export default function EducationForm({ onChange, sectionBlockState }: EducationFormProps) {

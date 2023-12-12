@@ -1,3 +1,4 @@
+import { ProjectInfo } from "@/example-data"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Textarea } from "@/components/ui/textarea"
@@ -5,8 +6,8 @@ import { Textarea } from "@/components/ui/textarea"
 
 
 type ProjectsFormProps = {
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-    sectionBlockState: any
+    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+    sectionBlockState: ProjectInfo
 }
 
 export default function ProjectsForm({ onChange, sectionBlockState }: ProjectsFormProps) {
@@ -80,7 +81,6 @@ export default function ProjectsForm({ onChange, sectionBlockState }: ProjectsFo
                 <Textarea
                     id="projectDesc"
                     placeholder="What did your project accomplish? What did you accomplish with this project?"
-                    type="text"
                     value={sectionBlockState.projectDesc}
                     onChange={onChange}
                     data-key="projectDesc"

@@ -1,3 +1,4 @@
+import { ExperienceInfo } from "@/example-data"
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Textarea } from "@/components/ui/textarea"
@@ -5,8 +6,8 @@ import { Textarea } from "@/components/ui/textarea"
 
 
 type ExperienceFormProps = {
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-    sectionBlockState: any
+    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+    sectionBlockState: ExperienceInfo
 }
 
 export default function ExperienceForm({ onChange, sectionBlockState }: ExperienceFormProps) {
@@ -80,7 +81,6 @@ export default function ExperienceForm({ onChange, sectionBlockState }: Experien
                 <Textarea
                     id="experienceDesc"
                     placeholder="What did you accomplish in this role?"
-                    type="text"
                     value={sectionBlockState.experienceDesc}
                     onChange={onChange}
                     data-key="experienceDesc"
