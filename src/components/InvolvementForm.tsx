@@ -24,7 +24,7 @@ export default function InvolvementForm({ onChange, sectionBlockState }: Involve
                     <Label>Involvement Title</Label>
                     <Input
                         id="title"
-                        placeholder={`${sectionBlockState.title}`}
+                        placeholder="What was your title?"
                         type="text"
                         value={sectionBlockState.title}
                         onChange={onChange}
@@ -35,7 +35,7 @@ export default function InvolvementForm({ onChange, sectionBlockState }: Involve
                     <Label>Start Date</Label>
                     <Input
                         id="involvementStartDate"
-                        placeholder="involvementStartDate"
+                        placeholder="When did you start?"
                         type="text"
                         value={sectionBlockState.involvementStartDate}
                         onChange={onChange}
@@ -46,7 +46,7 @@ export default function InvolvementForm({ onChange, sectionBlockState }: Involve
                     <Label>End Date</Label>
                     <Input
                         id="involvementEndDate"
-                        placeholder="involvementEndDate"
+                        placeholder="When did you leave the position?"
                         type="text"
                         value={sectionBlockState.involvementEndDate}
                         onChange={onChange}
@@ -57,7 +57,7 @@ export default function InvolvementForm({ onChange, sectionBlockState }: Involve
                     <Label>Involvement Link</Label>
                     <Input
                         id="involvementLink"
-                        placeholder="involvementLink"
+                        placeholder="What is the URL of the organization?"
                         type="text"
                         value={sectionBlockState.involvementLink}
                         onChange={onChange}
@@ -68,7 +68,7 @@ export default function InvolvementForm({ onChange, sectionBlockState }: Involve
                 <Label>Description</Label>   
                 <Textarea
                     id="involvementDesc"
-                    placeholder="involvementDesc"
+                    placeholder="What did you accomplish in this position?"
                     type="text"
                     value={sectionBlockState.involvementDesc}
                     onChange={onChange}

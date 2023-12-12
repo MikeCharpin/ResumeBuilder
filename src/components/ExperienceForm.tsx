@@ -24,7 +24,7 @@ export default function ExperienceForm({ onChange, sectionBlockState }: Experien
                     <Label>Job Title</Label>
                     <Input
                         id="title"
-                        placeholder={`${sectionBlockState.title}`}
+                        placeholder="What's the name of your role at this job? (recommend using industry standard naming)"
                         type="text"
                         value={sectionBlockState.title}
                         onChange={onChange}
@@ -35,7 +35,7 @@ export default function ExperienceForm({ onChange, sectionBlockState }: Experien
                     <Label>Business Name</Label>
                     <Input
                         id="experienceBusinessName"
-                        placeholder="experienceBusinessName"
+                        placeholder="What's the name of the business you were apart of?"
                         type="text"
                         value={sectionBlockState.experienceBusinessName}
                         onChange={onChange}
@@ -46,7 +46,7 @@ export default function ExperienceForm({ onChange, sectionBlockState }: Experien
                     <Label>Start Date</Label>
                     <Input
                         id="experienceStartDate"
-                        placeholder="experienceStartDate"
+                        placeholder="When did you start working? "
                         type="text"
                         value={sectionBlockState.experienceStartDate}
                         onChange={onChange}
@@ -57,7 +57,7 @@ export default function ExperienceForm({ onChange, sectionBlockState }: Experien
                     <Label>End Date</Label>
                     <Input
                         id="experienceEndDate"
-                        placeholder="experienceEndDate"
+                        placeholder="When did you leave this position?"
                         type="text"
                         value={sectionBlockState.experienceEndDate}
                         onChange={onChange}
@@ -68,7 +68,7 @@ export default function ExperienceForm({ onChange, sectionBlockState }: Experien
                     <Label>Location</Label>
                     <Input
                         id="experienceLocation"
-                        placeholder="experienceLocation"
+                        placeholder="Where was this position located?"
                         type="text"
                         value={sectionBlockState.experienceLocation}
                         onChange={onChange}
@@ -79,7 +79,7 @@ export default function ExperienceForm({ onChange, sectionBlockState }: Experien
                 <Label>Description</Label>   
                 <Textarea
                     id="experienceDesc"
-                    placeholder="experienceDesc"
+                    placeholder="What did you accomplish in this role?"
                     type="text"
                     value={sectionBlockState.experienceDesc}
                     onChange={onChange}

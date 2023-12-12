@@ -22,7 +22,7 @@ export default function EducationForm({ onChange, sectionBlockState }: Education
                     <Label>Degree / Certificate Title</Label>
                     <Input
                         id="title"
-                        placeholder={`${sectionBlockState.title}`}
+                        placeholder="What's the title of your degree or certificate?"
                         type="text"
                         value={sectionBlockState.title}
                         onChange={onChange}
@@ -33,7 +33,7 @@ export default function EducationForm({ onChange, sectionBlockState }: Education
                     <Label>School Name</Label>
                     <Input
                         id="educationSchoolName"
-                        placeholder="educationSchoolName"
+                        placeholder="What's the name of the school or course your took?"
                         type="text"
                         value={sectionBlockState.educationSchoolName}
                         onChange={onChange}
@@ -44,7 +44,7 @@ export default function EducationForm({ onChange, sectionBlockState }: Education
                     <Label>Completion Date</Label>
                     <Input
                         id="educationEndDate"
-                        placeholder="educationEndDate"
+                        placeholder="What year did you complete your education?"
                         type="text"
                         value={sectionBlockState.educationEndDate}
                         onChange={onChange}
@@ -55,7 +55,7 @@ export default function EducationForm({ onChange, sectionBlockState }: Education
                     <Label>Location</Label>
                     <Input
                         id="educationLocation"
-                        placeholder="educationLocation"
+                        placeholder="Where did you go for your education? (example: New York, NY or remote)"
                         type="text"
                         value={sectionBlockState.educationLocation}
                         onChange={onChange}

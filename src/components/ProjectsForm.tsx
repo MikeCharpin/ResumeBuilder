@@ -24,7 +24,7 @@ export default function ProjectsForm({ onChange, sectionBlockState }: ProjectsFo
                     <Label>Project Title</Label>
                     <Input
                         id="title"
-                        placeholder={`${sectionBlockState.title}`}
+                        placeholder="What's the name of your project?"
                         type="text"
                         value={sectionBlockState.title}
                         onChange={onChange}
@@ -35,7 +35,7 @@ export default function ProjectsForm({ onChange, sectionBlockState }: ProjectsFo
                     <Label>Project Tech</Label>
                     <Input
                         id="projectTech"
-                        placeholder="projectTech"
+                        placeholder="What tech stack did you use?"
                         type="text"
                         value={sectionBlockState.projectTech}
                         onChange={onChange}
@@ -46,7 +46,7 @@ export default function ProjectsForm({ onChange, sectionBlockState }: ProjectsFo
                     <Label>Start Date</Label>
                     <Input
                         id="projectStartDate"
-                        placeholder="projectStartDate"
+                        placeholder="When did you start the project?"
                         type="text"
                         value={sectionBlockState.projectStartDate}
                         onChange={onChange}
@@ -57,7 +57,7 @@ export default function ProjectsForm({ onChange, sectionBlockState }: ProjectsFo
                     <Label>End Date</Label>
                     <Input
                         id="projectEndDate"
-                        placeholder="projectEndDate"
+                        placeholder="When did you complete the project?"
                         type="text"
                         value={sectionBlockState.projectEndDate}
                         onChange={onChange}
@@ -68,7 +68,7 @@ export default function ProjectsForm({ onChange, sectionBlockState }: ProjectsFo
                     <Label>Project Link</Label>
                     <Input
                         id="projectLink"
-                        placeholder="projectLink"
+                        placeholder="What is the URL of your project?"
                         type="text"
                         value={sectionBlockState.projectLink}
                         onChange={onChange}
@@ -79,7 +79,7 @@ export default function ProjectsForm({ onChange, sectionBlockState }: ProjectsFo
                 <Label>Description</Label>   
                 <Textarea
                     id="projectDesc"
-                    placeholder="projectDesc"
+                    placeholder="What did your project accomplish? What did you accomplish with this project?"
                     type="text"
                     value={sectionBlockState.projectDesc}
                     onChange={onChange}
