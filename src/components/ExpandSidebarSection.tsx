@@ -26,7 +26,7 @@ export type ExpandSidebarSectionProps = {
   
 export default function ExpandSidebarSection({sectionName, sectionState, FormComponent, handleSectionChange, FormIcon, createForm}: ExpandSidebarSectionProps) {
     return(
-        <div className="flex flex-col p-4 gap-3  rounded-xl bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100">
+        <div className="flex flex-col p-3 gap-3  rounded-xl bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100">
             <div className="flex font-bold">
                <FormIcon /> &nbsp; {sectionName}
             </div>

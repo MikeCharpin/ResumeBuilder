@@ -8,7 +8,7 @@ type ResumeProps = {
 
 export default function Resume({ personalInfo, sectionsState }: ResumeProps) {
     return (
-        <div className="bg-white w-3/4 h-full py-10 px-6">
+        <div>
             <ResumeHeader
                 fullName={personalInfo.fullName}
                 email={personalInfo.email}
@@ -66,11 +66,11 @@ export default function Resume({ personalInfo, sectionsState }: ResumeProps) {
 function ResumeHeader({fullName, email, location, linkedin, website, phoneNumber}: PersonalInfo) {
     return (
         <div className="flex flex-col items-center justify-center">
-            <div className="text-2xl font-bold">
+            <div className="text-2xl font-bold pb-2">
                 {fullName}
             </div>
             <div className="flex">
-                <ul className="flex gap-4 text-xs">
+                <ul className=" md:flex md:gap-4 grid lg:grid lg:gap-1 xl:flex xl:gap-4 gap-1 text-xs">
                     <div className='flex items-center justify-center gap-1'>
                         <MapPinIcon className='w-3' />
                         <li>{location}</li>
@@ -107,16 +107,16 @@ function ProjectSection({ projectSection }: ProjectSectionProps) {
         <div className='w-full flex flex-col gap-3' >
             {projectSection.map((project: ProjectInfo) => 
             <div key={project.sectionBlockId}>
-                    <div className="flex pt-2">
+                    <div className="flex flex-wrap pt-2">
                         <div className='text-sm font-semibold'>
                             {project.title}
                         </div>
-                        <div className='text-sm'>
+                        <div className='text-xs md:text-sm'>
                             &nbsp;| {project.projectTech}
                         </div>
                     </div>
-                    <div className='text-xs'>
-                        {project.projectLink}   | {project.projectStartDate} - {project.projectEndDate}
+                    <div className='text-xs flex flex-wrap'>
+                        <div>{project.projectLink} </div> <div>| {project.projectStartDate} - {project.projectEndDate}</div>
                     </div>
                     <div className='text-xs whitespace-pre-line'>
                         {project.projectDesc}
@@ -140,12 +140,12 @@ function ExperienceSection({experienceSection}: ExperienceSectionProps) {
                     <div className="text-sm font-semibold">
                         {experience.title}
                     </div>
-                    <div className='text-sm flex justify-between'>
+                    <div className='md:text-sm text-xs flex flex-wrap justify-between'>
                         <div>
                             {experience.experienceBusinessName}
                         </div>
-                        <div>
-                            {experience.experienceStartDate} - {experience.experienceEndDate} | {experience.experienceLocation}
+                        <div className='flex flex-wrap'>
+                            <div>{experience.experienceStartDate} - {experience.experienceEndDate}</div><div> | {experience.experienceLocation}</div>
                         </div>
                     </div>
                     <div className='text-xs whitespace-pre-wrap'>
@@ -167,12 +167,14 @@ function EducationSection({educationSection}: EducationSectionProps) {
     return (
         <div className='w-full flex flex-col pt-2 gap-3'>
             {educationSection.map((education: EducationInfo) =>
-                <div key={education.sectionBlockId}>
+                <div key={education.sectionBlockId} >
                     <div className='text-sm font-semibold'>
                         {education.title}
                     </div>
-                    <div className='text-xs'>
-                        {education.educationSchoolName} - {education.educationLocation} - {education.educationEndDate}
+                    <div className='text-xs flex flex-col md:flex-row'>
+                        <div>{education.educationSchoolName}</div>
+                         <div>&nbsp;- {education.educationLocation}</div>
+                          <div>&nbsp; - {education.educationEndDate}</div>
                     </div>
                 </div>
             )}
@@ -190,16 +192,17 @@ function InvolvementSection({involvementSection}: InvolvementSectionProps) {
         <div className='w-full flex flex-col pt-2'>
             {involvementSection.map((involvement: InvolvementInfo) => 
                 <div key={involvement.sectionBlockId}>
-            <div className='flex' >
+            <div className='flex flex-wrap' >
                 <div className='text-sm font-semibold'>
-                    {involvement.title} |
+                    {involvement.title}
                 </div>
                 <div className='text-sm'>
-                    &nbsp;{involvement.involvementPosition}
+                   | &nbsp;{involvement.involvementPosition}
                 </div>
             </div>
-            <div className='text-xs pb-1'>
-                {involvement.involvementLink} | {involvement.involvementStartDate} - {involvement.involvementEndDate}
+            <div className='text-xs pb-1 flex flex-wrap'>
+                <div>{involvement.involvementLink}</div>
+                 <div>| {involvement.involvementStartDate} - {involvement.involvementEndDate}</div>
             </div>
             <div className='text-xs whitespace-pre-wrap'>
                 {involvement.involvementDesc}

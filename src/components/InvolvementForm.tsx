@@ -14,7 +14,7 @@ export const InvolvementForm: React.FC<InvolvementFormProps> = ({ onChange, sect
 
 
     return(
-        <div  className="flex flex-col gap-1 p-3 border border-solid rounded-sm">
+        <div  className="flex flex-col gap-1 border border-solid rounded-sm">
             <form 
                 onSubmit={(e) => e.preventDefault()}
                 id={sectionBlockState.sectionBlockId}

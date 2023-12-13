@@ -118,23 +118,32 @@ export default function App() {
     }
 
   return (
-  <div className="flex items-start justify-between bg-stone-100 h-screen gap-4 p-4">
-    <Sidebar
-      handlePersonalInfoChange={handlePersonalInfoChange}
-      handleSectionChange={handleSectionChange}
-      createEducationForm={createEducationForm}
-      createExperienceForm={createExperienceForm}
-      createProjectForm={createProjectForm}
-      createInvolvementForm={createInvolvementForm}
-      personalInfo={personalInfo}
-      sectionsState={sectionsState}
-      clearResume={clearResume}
-      templateData={templateData}
-    />
-    <Resume
-      personalInfo={personalInfo}
-      sectionsState={sectionsState}
-    />
+  <div className="flex flex-col justify-center items-center  bg-stone-100">
+    <div className="text-center text-6xl p-6 md:pt-6 md:p-2 font-extralight bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 text-transparent bg-clip-text inline-block">Resume Builder React App</div>
+    <div className="flex flex-col-reverse justify-center lg:flex-row  gap-1 p-2 md:p-6 max-w-screen-xl">
+      <div className="lg:w-3/4 px-2 py-4 overflow-auto ">
+        <Sidebar
+          handlePersonalInfoChange={handlePersonalInfoChange}
+          handleSectionChange={handleSectionChange}
+          createEducationForm={createEducationForm}
+          createExperienceForm={createExperienceForm}
+          createProjectForm={createProjectForm}
+          createInvolvementForm={createInvolvementForm}
+          personalInfo={personalInfo}
+          sectionsState={sectionsState}
+          clearResume={clearResume}
+          templateData={templateData}
+        />
+      </div>
+      <div className=" bg-white py-10 px-1 md:px-6">
+        <Resume
+          personalInfo={personalInfo}
+          sectionsState={sectionsState}
+        />
+      </div>
+    </div>
   </div>
   )
 }
+
+// scrollbar-thin scrollbar-thumb-pink-200 scrollbar-track-indigo-100 overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full

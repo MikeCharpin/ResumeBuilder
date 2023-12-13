@@ -37,15 +37,15 @@ export default function Sidebar({
 }: SidebarProps) {
     
   return (
-    <div className="flex flex-col  gap-4 h-full w-1/4 px-2 py-4 overflow-auto scrollbar-thin scrollbar-thumb-pink-200 scrollbar-track-indigo-100 overflow-y-scroll scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
-    <div className="flex gap-2">
-        <Button onClick={templateData} variant={"secondary"} className="rounded-xl bg-gradient-to-r from-indigo-100 via-pink-100 to-pink-100">
-            <FileSpreadsheetIcon />&nbsp;Reset Template
-        </Button>
-        <Button onClick={clearResume} variant={"destructive"} className="rounded-xl bg-gradient-to-r from-pink-500 via-red-500 to-pink-500">
-            <Trash2Icon />&nbsp; Clear Resume
-        </Button>
-    </div>
+    <div className="flex flex-col gap-3">
+        <div className="flex gap-2 flex-wrap justify-center">
+            <Button onClick={templateData} variant={"secondary"} className="rounded-xl bg-gradient-to-r from-indigo-100 via-pink-100 to-pink-100">
+                <FileSpreadsheetIcon />&nbsp;Reset Template
+            </Button>
+            <Button onClick={clearResume} variant={"destructive"} className="rounded-xl bg-gradient-to-r from-pink-500 via-red-500 to-pink-500">
+                <Trash2Icon />&nbsp; Clear Resume
+            </Button>
+        </div>
         <AddPersonalInfo
             onChange={handlePersonalInfoChange}
             fullName={personalInfo.fullName}

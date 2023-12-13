@@ -14,7 +14,7 @@ export const ProjectsForm: React.FC<ProjectsFormProps> = ({ onChange, sectionBlo
 
 
     return(
-        <div  className="flex flex-col gap-1 p-3 border border-solid rounded-sm">
+        <div  className="flex flex-col border border-solid rounded-sm">
             <form 
                 onSubmit={(e) => e.preventDefault()}
                 id={sectionBlockState.sectionBlockId}
