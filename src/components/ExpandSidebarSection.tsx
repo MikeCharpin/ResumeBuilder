@@ -10,10 +10,15 @@ import { Button } from "./ui/button"
 import { PlusIcon } from "lucide-react"
 import { SectionBlock } from "@/App"
 
+
+export type FormProps = {
+        onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+        sectionBlockState: SectionBlock
+}
 export type ExpandSidebarSectionProps = {
     sectionName: string
     sectionState: SectionBlock[]
-    FormComponent: React.ComponentType<{ sectionBlockState: SectionBlock; onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void } >
+    FormComponent: React.ComponentType<any>  
     FormIcon: React.ComponentType
     createForm: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
     handleSectionChange: (e: React.ChangeEvent<HTMLInputElement| HTMLTextAreaElement>) => void
@@ -32,8 +37,8 @@ export default function ExpandSidebarSection({sectionName, sectionState, FormCom
                         <AccordionTrigger>{sectionBlockState.title}</AccordionTrigger>
                         <AccordionContent>
                             <FormComponent
-                                sectionBlockState={sectionBlockState}
                                 onChange={handleSectionChange}
+                                sectionBlockState={sectionBlockState}
                             /> 
                         </AccordionContent>
                     </AccordionItem>

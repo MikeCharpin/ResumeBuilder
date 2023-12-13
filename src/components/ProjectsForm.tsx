@@ -5,12 +5,12 @@ import { Textarea } from "@/components/ui/textarea"
 
 
 
-type ProjectsFormProps = {
+export type ProjectsFormProps = {
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
     sectionBlockState: ProjectInfo
 }
 
-export default function ProjectsForm({ onChange, sectionBlockState }: ProjectsFormProps) {
+export const ProjectsForm: React.FC<ProjectsFormProps> = ({ onChange, sectionBlockState }) => {
 
 
     return(

@@ -5,12 +5,12 @@ import { Textarea } from "@/components/ui/textarea"
 
 
 
-type InvolvementFormProps = {
+export type InvolvementFormProps = {
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
     sectionBlockState: InvolvementInfo
 }
 
-export default function InvolvementForm({ onChange, sectionBlockState }: InvolvementFormProps) {
+export const InvolvementForm: React.FC<InvolvementFormProps> = ({ onChange, sectionBlockState }) => {
 
 
     return(

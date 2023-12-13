@@ -5,12 +5,12 @@ import { Textarea } from "@/components/ui/textarea"
 
 
 
-type ExperienceFormProps = {
+export type ExperienceFormProps = {
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
     sectionBlockState: ExperienceInfo
 }
 
-export default function ExperienceForm({ onChange, sectionBlockState }: ExperienceFormProps) {
+export const ExperienceForm: React.FC<ExperienceFormProps> = ({ onChange, sectionBlockState }) => {
 
 
     return(
